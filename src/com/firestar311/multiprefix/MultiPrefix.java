@@ -19,6 +19,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.earth2me.essentials.Essentials;
 import com.earth2me.essentials.User;
 
+import net.md_5.bungee.api.ChatColor;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
 
@@ -108,8 +109,7 @@ public class MultiPrefix extends JavaPlugin implements Listener {
 			format = format.replace("%displayname%", player.getDisplayName());
 			format = format.replace("%suffix%", mainGroup.getSuffix());
 			format = format.replace("%message%", e.getMessage());
-			format = format.replace("&", "§");
-			System.out.println(format);
+			format = ChatColor.translateAlternateColorCodes('&', format);
 			e.setFormat(format);
 		}
 	}
