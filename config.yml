@@ -1,7 +1,8 @@
 #The new config for Multiprefix, please follow the instructions exactly
-#The first indented part after the "groups:" section is the name of teh group, it must match the EXACT name of the group in the permissions plugin
+#The first indented part after the "groups:" section is the name of the group, it must match the EXACT name of the group in the permissions plugin
 #The next one is the prefix of the group, color codes are supported, just make sure you put '' surrounding it. 
-#The suffix is optional and only one suffix would be supported unless there are more requests to add multisuffix support, Color codes supported
+#The suffix is optional, Color codes supported
+#If you do not want a suffix, set the setting to '' and make sure the permission-suffix setting is set to false
 #The chat-format section is required and the following is the variables that you can use
 #       %displayname% - The prefix(es), main username, and suffix set by this plugin alone. If requested, I can add more support for other specific plugins
 #       %message% - The chat message
@@ -16,9 +17,9 @@
 #Incomplete, but config setting here for future reference
 chat-formatting: true
 
-#Set this to false to use the prefix from the Permissions Plugin instead of the ones here
-#Incomplete, but config setting here for future reference
-prefixes: true
+#If you want to have the permissions plugin set the prefixes or suffixes, change the appropriate setting below
+permissions-prefix: false
+permissions-suffix: false
 
 #Set this to true to use Essentials Nicknames instead of the normal player name
 #You must change the add-prefix-suffix setting in your Essentials config.yml to false to prevent duplicate prefixes
@@ -26,24 +27,27 @@ prefixes: true
 #Incomplete, but config setting here for future reference
 using-essentials: false
 
+#Set this to the name of your main world. Use this if you have the permissions-plugin setting set to true
+main-world: world
+
 groups:
   Default:
     prefix: '&8[&fMember&8] '
     suffix: ''
-    chat-format: '%displayname% &7> &f%message%'
+    chat-format: '%displayname%&7> &f%message%'
     priority: 3
   VIP:
     prefix: '&8[&bVIP&8] '
     suffix: ''
-    chat-format: '%displayname% %suffix% &7> &f%message%'
+    chat-format: '%displayname%&7> &f%message%'
     priority: 2
   Helper:
     prefix: '&8[&aHelper&8] '
     suffix: ''
-    chat-format: '%displayname% %suffix% &7> &a%message%'
+    chat-format: '%displayname%&7> &a%message%'
     priority: 1
   Moderator:
     prefix: '&8[&dModerator&8] '
     suffix: ''
-    chat-format: '%displayname% %suffix% &7> &d%message%'
+    chat-format: '%displayname%&7> &d%message%'
     priority: 0

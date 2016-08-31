@@ -7,6 +7,7 @@ public class Group {
 	private String format;
 	private int priority;
 	public Group(String name, String prefix, String suffix, String format, int priority) {
+		this.name = name;
 		this.prefix = prefix;
 		this.suffix = suffix;
 		this.format = format;
@@ -27,4 +28,11 @@ public class Group {
 	public int getPriority() {
 		return priority;
 	}
+	@Override
+	public String toString() {
+		return "Group [name=" + name + ", prefix=" + prefix + ", suffix=" + suffix + ", format=" + format
+				+ ", priority=" + priority + "]";
+	}
+	
+	
 }
