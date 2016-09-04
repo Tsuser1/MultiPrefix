@@ -1,5 +1,5 @@
 name: MultiPrefix
-version: 2.1.1
+version: 2.1.2
 description: Allows multiple prefixes based on groups
 author: Firestar311
 main: com.firestar311.multiprefix.MultiPrefix

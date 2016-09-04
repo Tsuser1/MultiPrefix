@@ -39,10 +39,14 @@ public class PlayerChatNoEss implements Listener {
 
 		String playerName = player.getName();
 		
-		if (!(suffix == ""))
-			player.setDisplayName(prefix + playerName + " " + suffix);
-		else {
-			player.setDisplayName(prefix + playerName);
+		if (!(suffix == "")) {
+			String dn = prefix + playerName + " " + suffix;
+			dn = ChatColor.translateAlternateColorCodes('&', dn);
+			player.setDisplayName(dn);
+		} else {
+			String dn = prefix + playerName;
+			dn = ChatColor.translateAlternateColorCodes('&', dn);
+			player.setDisplayName(dn);
 		}
 
 		String format = playerPrefixList.get(playerPrefixList.firstKey()).getFormat();

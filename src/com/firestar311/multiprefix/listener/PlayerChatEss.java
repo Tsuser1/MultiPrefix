@@ -46,10 +46,16 @@ public class PlayerChatEss implements Listener {
 		User user = new User(player, essentials);
 		playerName = user.getNick(false);
 		playerName = player.getName();
-		if (!(suffix == ""))
-			player.setDisplayName(prefix + playerName + " " + suffix);
-		else {
-			player.setDisplayName(prefix + playerName);
+		if (!(suffix == "")) {
+			String dn = prefix + playerName + " " + suffix;
+			dn = ChatColor.translateAlternateColorCodes('&', dn);
+			player.setDisplayName(dn);
+			user.setNickname(dn);
+		} else {
+			String dn = prefix + playerName;
+			dn = ChatColor.translateAlternateColorCodes('&', dn);
+			player.setDisplayName(dn);
+			user.setNickname(dn);
 		}
 
 		String format = playerPrefixList.get(playerPrefixList.firstKey()).getFormat();
