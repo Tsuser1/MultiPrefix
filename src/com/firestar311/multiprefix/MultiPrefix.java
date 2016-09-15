@@ -8,7 +8,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -93,14 +92,6 @@ public class MultiPrefix extends JavaPlugin {
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if(sender instanceof Player) {
-			Player player = (Player) sender;
-			if(useEssentials) {
-				player.setDisplayName(new PlayerJoinEss(this).updateDisplayName(player));
-			}else{
-				player.setDisplayName(new PlayerJoinNoEss(this).updateDisplayName(player));
-			}
-		}
 		if (cmd.getName().equalsIgnoreCase("multiprefix")) {
 			if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
 				this.reloadConfig();
