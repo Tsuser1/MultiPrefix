@@ -30,6 +30,12 @@ using-essentials: false
 #Set this to the name of your main world. Use this if you have the permissions-plugin setting set to true
 main-world: world
 
+#Value for priority. True means it will put the player's suffixes first then the groups. False is group suffixes first. 
+player-suffixes: true
+
+#Do not change this value for whatever reason. This is for internal use in the plugin. 
+version: 2.2
+
 groups:
   Default:
     prefix: '&8[&fMember&8] '

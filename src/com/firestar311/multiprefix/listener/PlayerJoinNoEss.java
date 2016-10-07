@@ -24,6 +24,7 @@ public class PlayerJoinNoEss implements Listener {
 		Player player = e.getPlayer();
 		String[] playerGroups = plugin.getPermission().getPlayerGroups(player);
 		TreeMap<Integer, Group> playerPrefixList = new TreeMap<Integer, Group>();
+		boolean playerSuffixes = plugin.getConfig().getBoolean("player-suffixes");
 		for (String pg : playerGroups) {
 			Group group = plugin.getGroups().get(pg);
 			playerPrefixList.put(group.getPriority(), group);
@@ -31,10 +32,18 @@ public class PlayerJoinNoEss implements Listener {
 
 		String prefix = "";
 		String suffix = "";
+		if(playerSuffixes) {
+			suffix += plugin.getChat().getPlayerSuffix(player);
+		}
+		
 		for (int i : playerPrefixList.keySet()) {
 			Group group = playerPrefixList.get(i);
 			prefix += group.getPrefix();
 			suffix += group.getSuffix();
+		}
+		
+		if(!playerSuffixes) {
+			suffix += plugin.getChat().getPlayerSuffix(player);
 		}
 
 		String playerName = player.getName();

@@ -63,9 +63,7 @@ public class MultiPrefix extends JavaPlugin {
 		Set<String> gs = this.getConfig().getConfigurationSection("groups").getKeys(false);
 
 		for (String s : gs) {
-			String prefix = "";
-			String suffix = "";
-			String cformat = "";
+			String prefix = "", suffix = "", cformat = "";
 			int priority = 0;
 			if (usePermissionPrefix) {
 				prefix = chat.getGroupPrefix(main, s);
